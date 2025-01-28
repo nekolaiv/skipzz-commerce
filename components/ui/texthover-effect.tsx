@@ -37,7 +37,7 @@ export const TextHoverEffect = ({
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onMouseMove={(e) => setCursor({ x: e.clientX, y: e.clientY })}
-      className="select-none z-10"
+      className="z-10 select-none"
     >
       <defs>
         <linearGradient
@@ -63,7 +63,13 @@ export const TextHoverEffect = ({
           gradientUnits="userSpaceOnUse"
           r="20%"
           animate={maskPosition}
-          transition={{ duration: duration ?? 0, ease: "easeOut", type: "spring", stiffness: 300, damping: 50, }}
+          transition={{
+            duration: duration ?? 0,
+            ease: "easeOut",
+            type: "spring",
+            stiffness: 300,
+            damping: 50,
+          }}
 
           // example for a smoother animation below
 
@@ -92,7 +98,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="font-[helvetica] font-bold stroke-neutral-200 dark:stroke-neutral-800 fill-transparent text-7xl  "
+        className="fill-transparent stroke-neutral-200 font-[helvetica] text-7xl font-bold dark:stroke-neutral-800"
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -103,7 +109,7 @@ export const TextHoverEffect = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.7"
-        className="font-[helvetica] font-bold fill-transparent text-7xl   stroke-neutral-200 dark:stroke-neutral-800"
+        className="fill-transparent stroke-neutral-200 font-[helvetica] text-7xl font-bold dark:stroke-neutral-800"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -124,7 +130,7 @@ export const TextHoverEffect = ({
         stroke="url(#textGradient)"
         strokeWidth="1.0"
         mask="url(#textMask)"
-        className="font-[helvetica] font-bold fill-transparent text-7xl  "
+        className="fill-transparent font-[helvetica] text-7xl font-bold"
       >
         {text}
       </text>
